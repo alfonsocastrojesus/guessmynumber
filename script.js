@@ -5,9 +5,15 @@ document.querySelector('.number').textContent = numbertoGuess;
 document.querySelector('.check').addEventListener('click', function () {
   const userNumber = Number(document.querySelector('.guess').value);
 
-  if (numbertoGuess === userNumber) {
-    document.querySelector('.message').textContent = 'CORRECT!!';
+  const message = document.querySelector('.message');
+  const body = document.querySelector('body');
+
+  if (numbertoGuess > userNumber) {
+    message.textContent = 'Too Low!';
+  } else if (numbertoGuess < userNumber) {
+    message.textContent = 'Too High!';
   } else {
-    document.querySelector('.message').textContent = 'INCORRECT!!';
+    message.textContent = 'Correct!';
+    body.style.backgroundColor = '#60b347';
   }
 });
