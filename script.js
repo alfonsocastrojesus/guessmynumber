@@ -8,6 +8,6 @@ document.querySelector('.check').addEventListener('click', function () {
   if (numbertoGuess === userNumber) {
     document.querySelector('.message').textContent = 'CORRECT!!';
   } else {
-    document.querySelector('.message').textContent = 'incorrect!!';
+    document.querySelector('.message').textContent = 'INCORRECT!!';
   }
 });
