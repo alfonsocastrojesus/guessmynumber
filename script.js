@@ -17,3 +17,4 @@ document.querySelector('.check').addEventListener('click', function () {
     body.style.backgroundColor = '#60b347';
   }
 });
+// this is a comment to test
