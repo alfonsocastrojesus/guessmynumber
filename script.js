@@ -1,12 +1,19 @@
 'use strict';
-const numberA = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = numberA;
+const numbertoGuess = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = numbertoGuess;
 
 document.querySelector('.check').addEventListener('click', function () {
-  const guessA = Number(document.querySelector('.guess').value);
-  if (guessA === numberA) {
-    document.querySelector('.message').textContent = 'correct';
+  const userNumber = Number(document.querySelector('.guess').value);
+
+  const message = document.querySelector('.message');
+  const body = document.querySelector('body');
+
+  if (numbertoGuess > userNumber) {
+    message.textContent = 'Too Low!';
+  } else if (numbertoGuess < userNumber) {
+    message.textContent = 'Too High!';
   } else {
-    document.querySelector('.message').textContent = 'Incorrect';
+    message.textContent = 'Correct!';
+    body.style.backgroundColor = '#60b347';
   }
 });
