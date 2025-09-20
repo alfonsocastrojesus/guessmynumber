@@ -7,6 +7,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
   const message = document.querySelector('.message');
   const body = document.querySelector('body');
+  const reset = document.querySelector('.again');
 
   if (numbertoGuess > userNumber) {
     message.textContent = 'Too Low!';
@@ -15,6 +16,8 @@ document.querySelector('.check').addEventListener('click', function () {
   } else {
     message.textContent = 'Correct!';
     body.style.backgroundColor = '#60b347';
+    reset.addEventListener('click', function () {
+      location.reload();
+    });
   }
 });
-// this is a comment to test
