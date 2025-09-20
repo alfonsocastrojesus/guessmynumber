@@ -1,5 +1,7 @@
 'use strict';
 const numbertoGuess = Math.trunc(Math.random() * 20) + 1;
+let userScore = Number((document.querySelector('.score').textContent = 20));
+
 document.querySelector('.number').textContent = numbertoGuess;
 
 document.querySelector('.check').addEventListener('click', function () {
@@ -11,8 +13,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
   if (numbertoGuess > userNumber) {
     message.textContent = 'Too Low!';
+    userScore--;
+    document.querySelector('.score').textContent = userScore;
   } else if (numbertoGuess < userNumber) {
     message.textContent = 'Too High!';
+    userScore--;
+    document.querySelector('.score').textContent = userScore;
   } else {
     message.textContent = 'Correct!';
     body.style.backgroundColor = '#60b347';
