@@ -11,17 +11,23 @@ document.querySelector('.check').addEventListener('click', function () {
   const body = document.querySelector('body');
   const reset = document.querySelector('.again');
 
-  if (numbertoGuess > userNumber) {
+  if (userNumber === numbertoGuess) {
+    message.textContent = 'Correct!';
+    body.style.backgroundColor = '#60b347';
+    reset.addEventListener('click', function () {
+      location.reload();
+    });
+  } else if ((numbertoGuess > userNumber) & (userScore > 1)) {
     message.textContent = 'Too Low!';
     userScore--;
     document.querySelector('.score').textContent = userScore;
-  } else if (numbertoGuess < userNumber) {
+  } else if ((numbertoGuess < userNumber) & (userScore > 1)) {
     message.textContent = 'Too High!';
     userScore--;
     document.querySelector('.score').textContent = userScore;
   } else {
-    message.textContent = 'Correct!';
-    body.style.backgroundColor = '#60b347';
+    document.querySelector('.score').textContent = 'game over';
+    body.style.backgroundColor = '#FFE4E1';
     reset.addEventListener('click', function () {
       location.reload();
     });
